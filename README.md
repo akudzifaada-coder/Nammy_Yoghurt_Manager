@@ -1,5 +1,3 @@
-Absolutely — I’d make it sound more natural and student-like, while still keeping it professional enough for your GitHub README. I’d also remove some of the overly technical explanations that make it sound AI-generated.
-
 # Nammy Yoghurt Order & Inventory Manager
 
 Nammy Yoghurt Order & Inventory Manager is a web application I’m building to help manage the day-to-day activities of Nammy Yoghurt, a small yoghurt business that sells banana, vanilla, and strawberry flavoured yoghurt, as well as yoghurt parfait and Greek yoghurt.
