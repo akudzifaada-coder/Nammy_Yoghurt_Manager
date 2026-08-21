@@ -21,14 +21,15 @@ As I continue working on the project, I plan to add features that will make the 
 
 ## Features (Planned)
 
-* User login and authentication
-* Product and inventory management
-* Stock tracking for each yoghurt flavour
-* Creating and tracking customer orders
-* Order status such as pending and fulfilled
-* Dashboard showing sales information and low-stock alerts
-* Backend API and database integration for storing data
-
+- **Real backend authentication** — the current login flow is a frontend-only mock 
+  for testing protected routes and layouts. It does not verify credentials. A real 
+  implementation would require a backend (e.g. Node/Express) with a database to 
+  store user accounts, passwords hashed with a library like bcrypt, and 
+  token-based sessions (e.g. JWT) to securely track logged-in users.
+- Product/inventory listing (per flavour, with stock counts)
+- Order creation and tracking (pending/fulfilled)
+- Dashboard showing sales summaries and low-stock alerts
+- Backend API and database integration for persistent data
 ## Tech Stack
 
 * **React** — used to build the user interface and organise the application into reusable components
