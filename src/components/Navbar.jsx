@@ -1,15 +1,18 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Navbar() {
+  const linkClass = ({ isActive }) =>
+    isActive ? 'font-bold underline' : ''
+
   return (
     <nav className="flex justify-between items-center p-4 bg-blue-600 text-white">
       <span className="font-bold text-lg">Nammy Yoghurt</span>
       <div className="flex gap-4">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <NavLink to="/" className={linkClass}>Home</NavLink>
+        <NavLink to="/login" className={linkClass}>Login</NavLink>
+        <NavLink to="/signup" className={linkClass}>Sign Up</NavLink>
+        <NavLink to="/about" className={linkClass}>About</NavLink>
+        <NavLink to="/contact" className={linkClass}>Contact</NavLink>
       </div>
     </nav>
   )
