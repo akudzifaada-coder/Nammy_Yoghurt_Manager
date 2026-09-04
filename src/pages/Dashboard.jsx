@@ -1,14 +1,13 @@
-import { useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 function Dashboard() {
-  const location = useLocation()
-  const email = location.state?.email
+  const { user } = useAuth()
 
   return (
     <div>
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <p className="mt-2 text-gray-700">
-        Welcome back{email ? `, ${email}` : ''}! This is your authenticated area.
+        Welcome back, {user?.firstName}! This is your authenticated area.
       </p>
     </div>
   )

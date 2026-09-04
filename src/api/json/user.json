@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "message": "Login successful",
+  "data": {
+    "user": {
+      "id": 1,
+      "firstName": "Dzifa",
+      "lastName": "Ada",
+      "email": "dzifa@example.com",
+      "username": "dzifa",
+      "role": "developer",
+      "isVerified": true,
+      "profile": {
+        "avatar": "/images/avatar.png",
+        "bio": "Founder of Nammy Yoghurt"
+      }
+    },
+    "tokens": {
+      "accessToken": "mock-access-token-123456",
+      "refreshToken": "mock-refresh-token-789012"
+    }
+  }
+}

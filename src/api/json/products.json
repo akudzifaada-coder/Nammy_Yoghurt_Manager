@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Banana Yoghurt",
+    "flavour": "banana",
+    "price": 12,
+    "size": "350ml",
+    "description": "Smooth yoghurt blended with real banana for a naturally sweet taste.",
+    "image": "/images/banana-yoghurt.png"
+  },
+  {
+    "id": 2,
+    "name": "Vanilla Yoghurt",
+    "flavour": "vanilla",
+    "price": 12,
+    "size": "350ml",
+    "description": "Classic creamy yoghurt with a rich vanilla finish.",
+    "image": "/images/vanilla-yoghurt.png"
+  },
+  {
+    "id": 3,
+    "name": "Strawberry Yoghurt",
+    "flavour": "strawberry",
+    "price": 12,
+    "size": "350ml",
+    "description": "Fruity, tangy-sweet yoghurt made with real strawberry flavour.",
+    "image": "/images/strawberry-yoghurt.png"
+  },
+  {
+    "id": 4,
+    "name": "Yoghurt Parfait",
+    "flavour": "vanilla",
+    "price": 15,
+    "size": "300ml",
+    "description": "Layered yoghurt, granola, and fruit — a wholesome snack or light meal.",
+    "image": "/images/parfait.png"
+  },
+  {
+    "id": 5,
+    "name": "Greek Yoghurt",
+    "flavour": "Plain",
+    "description": "Thick, protein-rich yoghurt with a smooth, tangy taste.",
+    "image": "/images/greek-yoghurt.png",
+    "sizes": [
+      { "size": "500ml unsweetened", "price": 35 },
+      { "size": "1L unsweetened", "price": 65 },
+      { "size": "500ml sweetened", "price": 40 },
+      { "size": "1L sweetened", "price": 70 }
+    ]
+  }
+]
