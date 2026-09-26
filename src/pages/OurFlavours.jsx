@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import useApi from '../hooks/useApi'
-import { fetchProducts } from '../api/productsAPI'
+import { fetchProducts } from '../api/productsApi'
 import ProductCard from '../components/ProductCard'
 
 function OurFlavours() {
