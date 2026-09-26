@@ -5,18 +5,23 @@ import UnauthWrapper from '../components/UnauthWrapper'
 import routesConfig from './routesConfig'
 
 function AppRoutes() {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, user } = useAuth()
 
   return (
     <Routes>
       {routesConfig.map(({ path, element, auth }) => {
-        // If the route requires auth but the user isn't logged in, redirect to login
-        if (auth && !isAuthenticated) {
+        const isAdminRoute = auth === 'admin'
+        const isBlocked = auth === true
+          ? !isAuthenticated
+          : isAdminRoute
+          ? !isAuthenticated || user?.role !== 'admin'
+          : false
+
+        if (isBlocked) {
           return <Route key={path} path={path} element={<Navigate to="/login" replace />} />
         }
 
-        // Wrap the page in the correct layout based on its condition
-        const wrappedElement = auth ? (
+        const wrappedElement = (auth === true || isAdminRoute) ? (
           <AuthWrapper>{element}</AuthWrapper>
         ) : (
           <UnauthWrapper>{element}</UnauthWrapper>

@@ -1,13 +1,18 @@
 import { useState } from 'react'
+import { useCart } from '../context/CartContext'
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart()
   const hasSizes = Array.isArray(product.sizes) && product.sizes.length > 0
-
-  // For multi-size products, track which size is currently selected
   const [selectedIndex, setSelectedIndex] = useState(0)
 
-  const displayPrice = hasSizes ? product.sizes[selectedIndex].price : product.price
-  const displaySize = hasSizes ? product.sizes[selectedIndex].size : product.size
+  const selectedSize = hasSizes
+    ? product.sizes[selectedIndex]
+    : { size: product.size, price: product.price }
+
+  function handleAddToCart() {
+    addToCart(product, selectedSize)
+  }
 
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -29,7 +34,7 @@ function ProductCard({ product }) {
       <div className="p-4">
         <div className="flex justify-between items-start mb-1">
           <h3 className="font-bold text-lg">{product.name}</h3>
-          <span className="text-blue-600 font-semibold">GHS {displayPrice}</span>
+          <span className="text-blue-600 font-semibold">GHS {selectedSize.price}</span>
         </div>
 
         {hasSizes ? (
@@ -45,10 +50,17 @@ function ProductCard({ product }) {
             ))}
           </select>
         ) : (
-          <p className="text-sm text-gray-500 mb-2">{displaySize}</p>
+          <p className="text-sm text-gray-500 mb-2">{selectedSize.size}</p>
         )}
 
-        <p className="text-gray-700 text-sm">{product.description}</p>
+        <p className="text-gray-700 text-sm mb-3">{product.description}</p>
+
+        <button
+          onClick={handleAddToCart}
+          className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition-colors"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   )
