@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+
 function PaymentCallback() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -17,7 +19,7 @@ function PaymentCallback() {
       return
     }
 
-    fetch(`http://localhost:5000/api/payments/verify/${reference}`)
+    fetch(`${API_BASE_URL}/payments/verify/${reference}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

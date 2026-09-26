@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useCart } from '../context/CartContext'
 import LocationPicker from '../components/LocationPicker'
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+
 function Checkout() {
   const { cartItems, totalPrice } = useCart()
 
@@ -20,7 +22,7 @@ function Checkout() {
     setErrorMsg('')
 
     try {
-      const response = await fetch('http://localhost:5000/api/payments/initialize', {
+      const response = await fetch(`${API_BASE_URL}/payments/initialize`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

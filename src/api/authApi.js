@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
 export async function loginRequest({ email, password }) {
   const response = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -6,9 +6,7 @@ export async function loginRequest({ email, password }) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
   })
-
-  const data = await response.json()
-  return data
+  return response.json()
 }
 
 export async function signupRequest({ firstName, lastName, email, password }) {
@@ -17,7 +15,5 @@ export async function signupRequest({ firstName, lastName, email, password }) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ firstName, lastName, email, password })
   })
-
-  const data = await response.json()
-  return data
+  return response.json()
 }
